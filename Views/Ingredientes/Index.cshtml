@@ -1,0 +1,42 @@
+@model IEnumerable<NutriYA.Ingrediente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtraCosa)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtraCosa)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { PK = item.Nombre, RK = item.OtraCosa }) |
+                @Html.ActionLink("Details", "Details", new { PK = item.Nombre, RK = item.OtraCosa }) |
+                @Html.ActionLink("Delete", "Delete", new { PK = item.Nombre, RK = item.OtraCosa })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
